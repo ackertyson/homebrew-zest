@@ -16,6 +16,6 @@ class Zest < Formula
   end
 
   test do
-    assert_match "Usage:", shell_output("#{bin}/zest --help")
+    assert_match version.to_s, shell_output("#{bin}/zest --version")
   end
 end
