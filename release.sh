@@ -13,7 +13,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 "$SCRIPT_DIR/update.sh" "$VERSION"
 
 if [[ "$VERSION" == *beta* ]]; then
-  FORMULA_FILE="Formula/zest@beta.rb"
+  FORMULA_FILE="Formula/zest-beta.rb"
 else
   FORMULA_FILE="Formula/zest.rb"
 fi
