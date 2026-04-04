@@ -9,8 +9,14 @@ fi
 
 VERSION="$1"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-TEMPLATE="$SCRIPT_DIR/zest.rb.template"
-OUTPUT="$SCRIPT_DIR/Formula/zest.rb"
+
+if [[ "$VERSION" == *beta* ]]; then
+  TEMPLATE="$SCRIPT_DIR/zest@beta.rb.template"
+  OUTPUT="$SCRIPT_DIR/Formula/zest@beta.rb"
+else
+  TEMPLATE="$SCRIPT_DIR/zest.rb.template"
+  OUTPUT="$SCRIPT_DIR/Formula/zest.rb"
+fi
 
 CHECKSUMS_URL="https://github.com/ackertyson/zest/releases/download/v${VERSION}/checksums.txt"
 

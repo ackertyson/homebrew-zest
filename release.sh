@@ -12,8 +12,14 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 "$SCRIPT_DIR/update.sh" "$VERSION"
 
+if [[ "$VERSION" == *beta* ]]; then
+  FORMULA_FILE="Formula/zest@beta.rb"
+else
+  FORMULA_FILE="Formula/zest.rb"
+fi
+
 cd "$SCRIPT_DIR"
-git add Formula/zest.rb
+git add "$FORMULA_FILE"
 git commit -m "zest ${VERSION}"
 git tag -a "v${VERSION}" -m "zest ${VERSION}"
 git push origin main --tags

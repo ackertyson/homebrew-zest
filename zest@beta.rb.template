@@ -1,0 +1,23 @@
+class ZestATBeta < Formula
+  desc "Animate your shell prompt into view with a choice of effects (beta)"
+  homepage "https://github.com/ackertyson/zest"
+  version "@@VERSION@@"
+  license "MIT"
+
+  conflicts_with "zest", because: "both install a `zest` binary"
+
+  on_macos do
+    on_arm do
+      url "https://github.com/ackertyson/zest/releases/download/v#{version}/zest-#{version}-aarch64-apple-darwin.tar.gz"
+      sha256 "@@SHA256_AARCH64_APPLE@@"
+    end
+  end
+
+  def install
+    bin.install "zest"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/zest --version")
+  end
+end
